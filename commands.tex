@@ -32,7 +32,14 @@
   \par\vspace{0.5em}%
   \addcontentsline{toc}{subsection}{TMV: #1}%
 }
-
+% --- TMV / GPA (unnumbered but in TOC) ---
+\newcommand{\ps}[1][]{%
+  \vspace{1em}%
+  \noindent
+  \fcolorbox{accentborder}{black!97}{\textbf{Problem Set: #1}}%
+  \par\vspace{0.5em}%
+  \addcontentsline{toc}{subsection}{Problem Set: #1}%
+}
 \newcommand{\gpa}[1][]{%
   \vspace{1em}%
   \noindent
@@ -97,7 +104,8 @@
   \begin{problemBox}[#1]#2\end{problemBox}%
 }
 
-\newcommand{\solution}[1]{%
+\newcommand{\solution}[1]{% 
+  % \addcontentsline{toc}{paragraph}{Solution~\theproblem}%
   \begin{solutionBox}#1\end{solutionBox}%
 }
 
