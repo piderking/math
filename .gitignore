@@ -13,6 +13,7 @@
 # Re-include compiled pdf
 !*.pdf
 
+!*.yml
 
 # Re-include directories so Git can traverse them to find .tex files
 !*/
