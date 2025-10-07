@@ -56,7 +56,7 @@
 
 \end{center}
 \end{titlepage}
-:
+
 \newpage
 \tableofcontents
 \newpage
@@ -65,7 +65,7 @@
 
 % Suppose you want to include week7 to week12
 \foreach \n in {1,...,20} {%
-    \IfFileExists{./sections/week-\n.tex}{\input{sections/week-\n.tex}}{
+    \IfFileExists{./sections/week-\n.tex}{\input{sections/week-\n.tex} \newpage}{
     }
 }
 

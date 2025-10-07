@@ -2,26 +2,20 @@
 
 \tcbuselibrary{breakable}
 
-% Define a week counter
+% --- Week Counter ---
 \newcounter{weekcounter}
-\setcounter{weekcounter}{0}  % start at 0
+\setcounter{weekcounter}{0}
 
-% --- Dark Theme Base ---
+% --- Dark Theme ---
 \pagecolor{black!97}
 \color{white}
 
 % --- Accent Colors ---
-\definecolor{boxgray}{RGB}{40,40,40}       % lighter background gray
-\definecolor{accentblue}{RGB}{90,160,220}  % TMV / Problem
-\definecolor{accentgreen}{RGB}{80,200,120} % Solution
-\definecolor{accentorange}{RGB}{255,160,60}% Step
-\definecolor{accentborder}{RGB}{140,140,140}% border gray for TMV/GPA
-
-% --- TMV & Group Assignment Counters ---
-\newcounter{tmv}[section]
-\renewcommand{\thetmv}{\thesection.\arabic{tmv}}
-\newcounter{gpa}[section]
-\renewcommand{\thegpa}{\thesection.\arabic{gpa}}
+\definecolor{boxgray}{RGB}{40,40,40}
+\definecolor{accentblue}{RGB}{90,160,220}
+\definecolor{accentgreen}{RGB}{80,200,120}
+\definecolor{accentorange}{RGB}{255,160,60}
+\definecolor{accentborder}{RGB}{140,140,140}
 
 % --- Week / Section ---
 \newcommand{\week}[1]{%
@@ -30,29 +24,26 @@
   \addcontentsline{toc}{section}{Week \theweekcounter: #1}%
 }
 
-
-% --- TMV / GPA bordered headings ---
-\newcommand{\tmv}{%
-  \refstepcounter{tmv}%
+% --- TMV / GPA (unnumbered but in TOC) ---
+\newcommand{\tmv}[1][]{%
   \vspace{1em}%
   \noindent
-  \fcolorbox{accentborder}{black!97}{\textbf{TMV \thetmv}}%
+  \fcolorbox{accentborder}{black!97}{\textbf{TMV: #1}}%
   \par\vspace{0.5em}%
-  \addcontentsline{toc}{subsection}{TMV \thetmv}%
+  \addcontentsline{toc}{subsection}{TMV: #1}%
 }
 
-\newcommand{\gpa}{%
-  \refstepcounter{gpa}%
+\newcommand{\gpa}[1][]{%
   \vspace{1em}%
   \noindent
-  \fcolorbox{accentborder}{black!97}{\textbf{Group Assignment \thegpa}}%
+  \fcolorbox{accentborder}{black!97}{\textbf{Group Assignment: #1}}%
   \par\vspace{0.5em}%
-  \addcontentsline{toc}{subsection}{Group Assignment \thegpa}%
+  \addcontentsline{toc}{subsection}{Group Assignment: #1}%
 }
 
 % --- Problem / Step Counters ---
-\newcounter{problem}[tmv]
-\renewcommand{\theproblem}{\thetmv.\arabic{problem}}
+\newcounter{problem}[weekcounter]
+\renewcommand{\theproblem}{\theweekcounter.\arabic{problem}}
 
 \newcounter{step}[problem]
 \renewcommand{\thestep}{\theproblem.\arabic{step}}
@@ -85,7 +76,7 @@
   coltext=white
 }
 
-% --- Step Box (orange border) ---
+% --- Step Box ---
 \newtcolorbox{stepBox}[1][]{
   breakable,
   colback=boxgray,
@@ -95,7 +86,7 @@
   title=Step~\thestep:~#1,
   sharp corners,
   boxrule=0.7pt,
-  l:eft=6pt,right=6pt,top=4pt,bottom=4pt,
+  left=6pt,right=6pt,top=4pt,bottom=4pt,
   coltext=white
 }
 
