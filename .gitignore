@@ -1,14 +1,18 @@
-    # Ignore everything
-    *
+# Ignore everything
+*
 
-    # Except the .gitignore file itself
-    !.gitignore
+# Except the .gitignore file itself
+!.gitignore
 
-    # Re-include all .tex files
-    !*.tex
+# Re-include all .tex files
+!*.tex
 
-    # Re-include all .md files
-    !*.md
+# Re-include all .md files
+!*.md
 
-    # Re-include directories so Git can traverse them to find .tex files
-    !*/
+# Re-include compiled pdf
+!*.pdf
+
+
+# Re-include directories so Git can traverse them to find .tex files
+!*/
