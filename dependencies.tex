@@ -1,0 +1,27 @@
+%!root = main.tex
+% --- Dependencies ---
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+\usepackage{fancyhdr}
+
+
+% -- FancyHDR Setup
+\pagestyle{fancy}
+\fancyhf{} % clear headers/footers
+\fancyfoot[C]{\hyperlink{tocpage}{\textcolor{white}{\thepage}}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% -- Links
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=accentblue,
+    urlcolor=accentgreen
+}
+
+% for loops
+\usepackage{pgffor}  

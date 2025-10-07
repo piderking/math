@@ -1,0 +1,74 @@
+\documentclass{article}
+
+% --- Include dependencies ---
+\input{dependencies.tex}
+
+% --- Include commands ---
+\input{commands.tex}
+
+
+
+% Mark TOC target
+\AtBeginDocument{%
+  \phantomsection
+  \label{tocpage}
+}
+
+% Clickable page numbers in footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\hyperlink{tocpage}{\textcolor{white}{\thepage}}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+% --- Table of Contents Stuff
+\begin{document}
+
+% --- Title Page ---
+\begin{titlepage}
+\thispagestyle{empty}
+\begin{center}
+\vspace*{3cm}
+
+% --- Title ---
+{\Huge \textbf{\textcolor{accentblue}{CALC 400}} \par}
+\vspace{1cm}
+
+
+% --- Author ---
+{\Large \textcolor{accentorange}{Peter Bowman} \par}
+\vspace{0.5cm}
+
+% --- Date ---
+{\large \textcolor{white}{August 2025 - December 2025} \par}
+
+\vfill
+
+% --- GitHub Link ---
+\vspace{1cm}
+
+% Safe clickable GitHub link
+{\large \href{\detokenize{https://github.com/piderking/math/tree/calc-400}}%
+{\textcolor{accentblue}{Repository}} \par}
+
+
+
+\end{center}
+\end{titlepage}
+:
+\newpage
+\tableofcontents
+\newpage
+
+% --- Include Week Sections ---
+
+% Suppose you want to include week7 to week12
+\foreach \n in {1,...,20} {%
+    \IfFileExists{./sections/week-\n.tex}{\input{sections/week-\n.tex}}{
+    }
+}
+
+
+\end{document}
+

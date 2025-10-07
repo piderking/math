@@ -1,0 +1,117 @@
+%!root = main.tex
+
+\tcbuselibrary{breakable}
+
+% Define a week counter
+\newcounter{weekcounter}
+\setcounter{weekcounter}{0}  % start at 0
+
+% --- Dark Theme Base ---
+\pagecolor{black!97}
+\color{white}
+
+% --- Accent Colors ---
+\definecolor{boxgray}{RGB}{40,40,40}       % lighter background gray
+\definecolor{accentblue}{RGB}{90,160,220}  % TMV / Problem
+\definecolor{accentgreen}{RGB}{80,200,120} % Solution
+\definecolor{accentorange}{RGB}{255,160,60}% Step
+\definecolor{accentborder}{RGB}{140,140,140}% border gray for TMV/GPA
+
+% --- TMV & Group Assignment Counters ---
+\newcounter{tmv}[section]
+\renewcommand{\thetmv}{\thesection.\arabic{tmv}}
+\newcounter{gpa}[section]
+\renewcommand{\thegpa}{\thesection.\arabic{gpa}}
+
+% --- Week / Section ---
+\newcommand{\week}[1]{%
+  \refstepcounter{weekcounter}%
+  \section*{Week \theweekcounter: #1}%
+  \addcontentsline{toc}{section}{Week \theweekcounter: #1}%
+}
+
+
+% --- TMV / GPA bordered headings ---
+\newcommand{\tmv}{%
+  \refstepcounter{tmv}%
+  \vspace{1em}%
+  \noindent
+  \fcolorbox{accentborder}{black!97}{\textbf{TMV \thetmv}}%
+  \par\vspace{0.5em}%
+  \addcontentsline{toc}{subsection}{TMV \thetmv}%
+}
+
+\newcommand{\gpa}{%
+  \refstepcounter{gpa}%
+  \vspace{1em}%
+  \noindent
+  \fcolorbox{accentborder}{black!97}{\textbf{Group Assignment \thegpa}}%
+  \par\vspace{0.5em}%
+  \addcontentsline{toc}{subsection}{Group Assignment \thegpa}%
+}
+
+% --- Problem / Step Counters ---
+\newcounter{problem}[tmv]
+\renewcommand{\theproblem}{\thetmv.\arabic{problem}}
+
+\newcounter{step}[problem]
+\renewcommand{\thestep}{\theproblem.\arabic{step}}
+
+% --- Problem Box ---
+\newtcolorbox{problemBox}[1][]{
+  breakable,
+  colback=boxgray,
+  colframe=accentblue,
+  fonttitle=\bfseries,
+  coltitle=white,
+  title=Problem~\theproblem:~#1,
+  sharp corners,
+  boxrule=0.7pt,
+  left=6pt,right=6pt,top=4pt,bottom=4pt,
+  coltext=white
+}
+
+% --- Solution Box ---
+\newtcolorbox{solutionBox}[1][]{
+  breakable,
+  colback=boxgray,
+  colframe=accentgreen,
+  fonttitle=\bfseries,
+  coltitle=white,
+  title=Solution,
+  sharp corners,
+  boxrule=0.7pt,
+  left=6pt,right=6pt,top=4pt,bottom=4pt,
+  coltext=white
+}
+
+% --- Step Box (orange border) ---
+\newtcolorbox{stepBox}[1][]{
+  breakable,
+  colback=boxgray,
+  colframe=accentorange,
+  fonttitle=\bfseries,
+  coltitle=white,
+  title=Step~\thestep:~#1,
+  sharp corners,
+  boxrule=0.7pt,
+  l:eft=6pt,right=6pt,top=4pt,bottom=4pt,
+  coltext=white
+}
+
+% --- Commands ---
+\newcommand{\problem}[2][]{%
+  \refstepcounter{problem}%
+  \addcontentsline{toc}{subsubsection}{Problem~\theproblem: #1}%
+  \begin{problemBox}[#1]#2\end{problemBox}%
+}
+
+\newcommand{\solution}[1]{%
+  \begin{solutionBox}#1\end{solutionBox}%
+}
+
+\newcommand{\step}[2][]{%
+  \refstepcounter{step}%
+  \begin{stepBox}[#1]#2\end{stepBox}%
+}
+
