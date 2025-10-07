@@ -7,6 +7,9 @@ on:
     branches: ["master"]
   workflow_dispatch:  # allow manual trigger
 
+permissions:
+  contents: write  # <---- REQUIRED for creating releases
+
 jobs:
   build:
     runs-on: ubuntu-latest
