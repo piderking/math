@@ -18,10 +18,10 @@
 \definecolor{accentborder}{RGB}{140,140,140}
 
 % --- Week / Section ---
-\newcommand{\week}[1]{%
+\newcommand{\test}[1]{%
   \refstepcounter{weekcounter}%
-  \section*{Week \theweekcounter: #1}%
-  \addcontentsline{toc}{section}{Week \theweekcounter: #1}%
+  \section*{Practice Test \theweekcounter: #1}%
+  \addcontentsline{toc}{section}{Practice Test \theweekcounter: #1}%
 }
 
 % --- TMV / GPA (unnumbered but in TOC) ---
@@ -38,14 +38,7 @@
   \noindent
   \fcolorbox{accentborder}{black!97}{\textbf{Problem Set: #1}}%
   \par\vspace{0.5em}%
-  \addcontentsline{toc}{subsection}{Problem Set: #1}%
-}
-\newcommand{\gpa}[1][]{%
-  \vspace{1em}%
-  \noindent
-  \fcolorbox{accentborder}{black!97}{\textbf{Group Assignment: #1}}%
-  \par\vspace{0.5em}%
-  \addcontentsline{toc}{subsection}{Group Assignment: #1}%
+  \addcontentsline{toc}{subsection}{Section: #1}%
 }
 
 % --- Problem / Step Counters ---
