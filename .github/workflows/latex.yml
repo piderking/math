@@ -1,8 +1,8 @@
-name: Build and Release LaTeX PDF
+name: Build and Release Sat LaTeX PDF
 
 on:
   push:
-    branches: ["*"]
+    branches: ["sat"]
   pull_request:
     branches: ["master"]
   workflow_dispatch:  # allow manual trigger
