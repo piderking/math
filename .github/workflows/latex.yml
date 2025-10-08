@@ -2,7 +2,7 @@ name: Build and Release LaTeX PDF
 
 on:
   push:
-    branches: ["*"]
+    branches: ["calc-400"]
   pull_request:
     branches: ["master"]
   workflow_dispatch:  # allow manual trigger
