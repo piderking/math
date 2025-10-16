@@ -214,7 +214,7 @@ $$L(x) = 3(x)$$
 \solution{
 $$\frac{dy}{0.1} = 3sec^2(3x+6)$$
 }
-\problem[Percent Error]{
+\problem[Delta v. Differential Percent Error]{
 $$y= sin(4x) $$ If $\Delta x = 0.1$ at $x=1$ Find $\Delta y$
 }
 
@@ -233,3 +233,56 @@ $$y= sin(4x) $$ If $\Delta x = 0.1$ at $x=1$ Find $\Delta y$
 	$$dy = 0.4$$
 
 }
+\step[Percent Error]{
+	$$100 * \frac{dy - \Delta y}{\Delta y}$$
+}
+\solution {
+$$2.71729822182$$
+}
+
+% Group Assignment
+\gpa
+\problem[Group 6. Sec 4.1 3]{
+	Balloon rises vertically at rate of 10 ft/sec. A person watches the balloon ascend from a point on the groud
+	100ft away from the spot below the rising balloon. At what rate (radians/second) is the observer's eye rotating upward to follow the ballon when it is 50ft above the level of the observer's eye
+
+}
+\step[Definitions]{
+	$$\frac{dh}{dt}=10$$
+	$$\frac{db}{dt}=0$$
+	$$ b = 100 $$
+	$$ h = 50 $$
+
+	$$tan(\theta) = \frac{h}{b}$$
+}
+
+\step[Setting Up]{
+	$$\theta = tan^{-1}(\frac{h}{b})$$
+	$$u = \frac{h}{b}$$
+	$$\frac{du}{dt} = \frac{\frac{dh}{dt}b - h\frac{db}{dt}}{b^2}$$
+
+
+	$$\frac{du}{dt} = \frac{\frac{dh}{dt}b }{b^2}$$
+	
+	$$\frac{du}{dt} = \frac{\frac{dh}{dt} }{b}$$
+	$$\frac{du}{dt} = \frac{1}{10}$$
+
+	$$u = \frac{50}{100}$$
+	$$u = \frac{1}{2}$$
+
+
+	$$\frac{d\theta}{dt} = \frac{\frac{du}{dt}}{ 1 + u^2}$$
+}
+
+\step[Plugging In]{
+	
+	$$\frac{d\theta}{dt} = \frac{\frac{1}{10}}{ \frac{5}{4} }$$
+
+	$$\frac{d\theta}{dt} = \frac{1}{10} * \frac{4}{5} $$
+
+
+	$$\frac{d\theta}{dt} = \frac{4}{50} $$
+}
+
+
+
