@@ -11,7 +11,7 @@
 !*.md
 
 # Re-include compiled pdf
-!*.pdf
+#!*.pdf
 
 !*.yml
 

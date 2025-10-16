@@ -1,0 +1,159 @@
+%! ROOT = main.tex
+
+\week{Sec 4.1 and 4.2}
+\ps[Set 4.1 -- Related Rates]
+
+
+
+\problem[]{}
+\problem[]{}
+\problem[]{}
+\problem[]{}
+\problem[Shadow Problem]{A street light is at the top of a 18 ft tall pole. A woman 6 ft tall walks away from the pole with a speed of 4 ft/sec along a straight path. How fast is the tip of her shadow moving when she is 45 ft from the base of the pole?}
+
+\step[Find $\frac{dy}{dt}$]{
+	$$\frac{18}{6}=\frac{y}{y-x}$$
+
+	$$3(y-x)=y$$
+
+
+	$$3y-3x=y$$
+
+}
+\step[Solve for y]{
+	$$y= 3y - 3x$$
+	$$ -2y = -3x $$
+	$$ y = \frac{3}{2}x $$
+}
+\step[$Find \frac{dy}{dt}$]{
+	$$ \frac{dy}{dt} = \frac{3}{2}\frac{dx}{dt}$$
+	$$ \frac{dx}{dt} = 4$$
+	
+
+}
+\solution{
+	$$ \frac{dy}{dt} = 6$$
+}
+
+\problem[Volume Problem]{
+	An inverted pyramid is being filled with water at a constant rate of 35 cubic centimeters per second. The pyramid, at the top, has the shape of a square with sides of length 8 cm, and the height is 12 cm.
+}
+\step[Formulas and Definitions]{
+	$$V = \frac{b^2h}{3} $$
+	$$\frac{dV}{dt} = 25$$
+	$$h = 4$$
+	$$b = \frac{2}{7}h$$
+
+	$$ 3V = (\frac{2}{7}h)^2h $$
+
+	$$ 3V = \frac{4}{49}h^3 $$
+	
+	$$ \frac{3V}{\frac{4}{49}} = h^3 $$
+
+	$$ 3V * \frac{49}{4} = h^3 $$
+
+	$$ h^3 =  \frac{147V}{4} $$
+
+}
+
+\step[Find $\frac{dh}{dt}$]{
+
+	$$ 3h^2 * \frac{dh}{dt} =  \frac{147*25}{4}  $$
+	
+	$$ \frac{dh}{dt} =  \frac{147*25}{12h^2}  $$
+	
+
+}
+
+\solution{
+
+	$$ \frac{dh}{dt} =  \frac{147*25}{12*16}  $$
+}
+
+\problem[Rate of Change]{A circle is inside a square.
+
+The radius of the circle is decreasing at a rate of 5 meters per day and the sides of the square are increasing at a rate of 3 meters per day.
+
+When the radius is 2 meters, and the sides are 17 meters, then how fast is the AREA outside the circle but inside the square changing?
+
+The rate of change of the area enclosed between the circle and the square is 
+}
+
+\step[Definitions]{
+	$$\frac{dr}{dt} = -5$$
+
+	$$\frac{ds}{dt} = 3$$
+
+	$$BA = sA - cA$$
+
+	$$sA = s^2$$
+
+	$$\frac{dsA}{dt} = 6s$$
+	
+	$$cA = \pi r^2 $$
+
+	$$\frac{dcA}{dt} = -\pi10r$$
+	
+	$$\frac{dBA}{dt} = \frac{dsA}{dt}-\frac{dcA}{dt}$$
+	
+	$$\frac{dBA}{dt} = 6s - (-\pi10r)$$
+
+}
+\solution{
+
+	$$\frac{dBA}{dt} = 6 * 17 - (-\pi10*2)$$
+}
+
+
+\problem[Speed]{A police car is located 60 feet to the side of a straight road.
+
+A red car is driving along the road in the direction of the police car and is 160 feet up the road from the location of the police car. The police radar reads that the distance between the police car and the red car is decreasing at a rate of 100 feet per second. How fast is the red car actually traveling along the road?
+
+The actual speed (along the road) of the red car is [] feet / second
+}
+
+\step[Definitions]{
+	Triangle: $abc$
+	$$
+	a = 60
+	$$
+	$$
+	b = 160
+	$$
+	$$
+	c = 170.880075
+	$$
+
+	$$
+	\frac{dc}{dt} = 100
+	$$
+	$$
+	\frac{da}{dt} = 0
+	$$
+}
+\newpage
+\step[pythagorean theorem]{
+
+	$$
+	b^2 = c^2 - a^2
+	$$
+	$$
+	2b*\frac{db}{dt} =  2c \frac{dc}{dt} - 2a \frac{da}{dt}
+	$$
+
+	$$
+	320*\frac{db}{dt} =  341.76015 \frac{dc}{dt} - 120\frac{da}{dt}
+	$$
+}
+\step[Solve]{
+	$$
+	320*\frac{db}{dt} =  341.76015 * 100  
+	$$
+	$$
+	\frac{db}{dt} =  \frac{341.76015 * 100}{320}  
+	$$
+}
+\solution{
+	$$\frac{db}{dt} = 106.800046875 $$
+}
+
