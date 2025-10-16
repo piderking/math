@@ -157,3 +157,79 @@ The actual speed (along the road) of the red car is [] feet / second
 	$$\frac{db}{dt} = 106.800046875 $$
 }
 
+\ps[4.2 -- Linear Approximations and Differentials]
+
+\problem[Square Root Linear Approximation]{Approximate $\sqrt{25.4}$ Let $f(x) =  \sqrt{x}$ Find tangent line to $f(x)$ at $x=25$}
+
+\step [Find $f'(x)$]{
+   $f'(x) = \frac{1}{2\sqrt{x}}$
+}
+\step [Slope Intercept Form]{
+	$f'(25) = \frac{1}{10}$
+	$(25,5)$
+	$$L(x) = \frac{1}{10}(x-25) + 5$$
+
+	$$L(x) = \frac{1}{10}x + 2.5$$
+}
+
+\solution{
+
+	$$L(25.4) = \frac{1}{10}x + 2.5$$
+	
+	$$L(25.4) = 2.54 + 2.5$$
+
+	$$ 5.04$$
+}
+
+\problem[Sin Linear Approximation]{
+$x=0$ $f(x) = sin(3x)$
+
+
+}
+
+\step[Differentiate]{
+$$f'(x) = cos(3x) * 3 $$
+$$(0, 0)$$
+
+}
+\solution{
+
+$$L(x) = 3(x)$$
+}
+
+
+\problem[Linear Approximation of Complex Root and Percent Error]{
+	$$f(x) = \sqrt[3]{-90x^3+144}$$
+
+	$$f'(x) = \frac{-90x^2}{\sqrt[3]{(-90x^3 + 144)^2}}$$
+
+	$$f'(1) = -6.29960524947$$
+}
+
+
+\problem[Differentials]{
+	$$\frac{dy}{dx} = sec^2(3x+6) * 3 $$
+	
+}
+\solution{
+$$\frac{dy}{0.1} = 3sec^2(3x+6)$$
+}
+\problem[Percent Error]{
+$$y= sin(4x) $$ If $\Delta x = 0.1$ at $x=1$ Find $\Delta y$
+}
+
+\step[Definitions]{
+	$$\Delta y = f(x + \Delta x) - f(x)$$
+	$$\frac{dy}{dx} = f'(x)$$
+
+}
+\step[Delta] {
+	$$\Delta y = f(0 + 0.1) - f(0) = 0.389418342309$$
+
+}
+\step[Differentiatals]{
+	$$\frac{dy}{dx} = 4cos(4x)$$
+	$$dy = \frac{4cos(4x)}{10}$$
+	$$dy = 0.4$$
+
+}
