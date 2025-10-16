@@ -281,8 +281,56 @@ $$2.71729822182$$
 	$$\frac{d\theta}{dt} = \frac{1}{10} * \frac{4}{5} $$
 
 
+}
+\solution{
+
 	$$\frac{d\theta}{dt} = \frac{4}{50} $$
 }
 
+\tmv
+
+\problem[\# 3]{
+A ladder 12 feet long is leaning against a vertical wall with its other end on the
+ground. The top end of the ladder is sliding down the wall. When the top end is 7
+feet from the ground, it is sliding down the wall at 2 ft/sec. How fast is the bottom
+moving away from the wall at this instant?
+}
+
+\step[Diagram]{
+% Example 1: Full labels, using key-value syntax
+\righttriangle{4}{3}{(0,0)}[
+    label A={}, label B={}, label C={},
+	    side a={$l=12$}, side b={h=7}, side c={b},
+    % angle alpha=90^\circ, angle beta=\theta
+]
+}
+ \step[Definitions]{
+	 Sliding Away
+	 $$\frac{dh}{dt} = -2$$
+	 Ladder Length stays the same
+	 $$\frac{dl}{dt} = 0$$
+
+	 Relationship of Sides
+	 $$b^2 + h^2 = l^2$$
+	 $$b^2 = l^2 - h^2$$
+
+	 Length of b
+	 $$b = \sqrt{144 - 49}$$
+	 $$b = \sqrt{95}$$
+ }
+
+ \step[Derivative]{
+	 $$2b * \frac{db}{dt} = 2l * \frac{dl}{dt} - 2h * \frac{dh}{dt}$$
+ 
+	 $$\frac{db}{dt} = \frac{ 2l * \frac{dl}{dt} - 2h * \frac{dh}{dt}}{2\sqrt{95}}$$
 
 
+	 $$\frac{db}{dt} = \frac{  0 - (14 * -2) }{2\sqrt{95}}$$
+
+
+	 $$\frac{db}{dt} = \frac{  14 }{\sqrt{95}}$$
+ }
+
+ \solution{
+The bottom is sliding at $\frac{  14 }{\sqrt{95}}$ or  $1.43636969$ ft/sec
+ }

@@ -114,3 +114,64 @@
   \begin{stepBox}[#1]#2\end{stepBox}%
 }
 
+% -----------------------
+
+\pgfkeys{
+    /righttriangle/.cd,
+    label A/.store in=\VertA,  % Top Vertex Label
+    label B/.store in=\VertB,  % Right Vertex Label
+    label C/.store in=\VertC,  % Right Angle Vertex Label
+    side a/.store in=\SideA,   % Hypotenuse Label
+    side b/.store in=\SideB,   % Vertical Side Label
+    side c/.store in=\SideC,   % Horizontal Side Label
+    angle alpha/.store in=\AngAlpha, % Bottom-right Angle Label
+    angle beta/.store in=\AngBeta,   % Top-right Angle Label
+    % Set initial values (defaults to empty)
+    label A={}, label B={}, label C={},
+    side a={}, side b={}, side c={},
+    angle alpha={}, angle beta={},
+}
+
+% 3. Define the main command using xparse
+\NewDocumentCommand{\righttriangle}{ m m m O{} }{
+    % #1: Horizontal Leg Length (e.g., 4)
+    % #2: Vertical Leg Length (e.g., 3)
+    % #3: Origin Coordinate (e.g., (0,0))
+    % #4: Optional Key-Value Labels (e.g., side a=5, label C=X)
+    
+    % 4. Parse the optional key-value arguments
+    \pgfkeys{/righttriangle/.cd, #4}
+    
+    \begin{tikzpicture}
+        % Define coordinates
+        \coordinate (C) at #3; % Right Angle Vertex
+        \coordinate (B) at ($(C) + (#1,0)$); % Right Vertex
+        \coordinate (A) at ($(C) + (0,#2)$); % Top Vertex
+
+        % Draw the triangle
+        \draw (C) -- (B) -- (A) -- cycle;
+
+        % Label vertices
+        \node at (A) [vertex, label={above:\VertA}] {};
+        \node at (B) [vertex, label={below right:\VertB}] {};
+        \node at (C) [vertex, label={below left:\VertC}] {};
+
+        % Mark the right angle
+        \draw[line width=0.5pt] ($(C) + (0.2,0)$) -- ($(C) + (0.2,0.2)$) -- ($(C) + (0,0.2)$);
+
+        % Label sides
+        \path (C) -- (B) node[midway, below] {$\SideC$};
+        \path (C) -- (A) node[midway, left] {$\SideB$};
+        \path (A) -- (B) node[midway, above right] {$\SideA$}; % Hypotenuse label position adjusted
+
+        % Mark and label the acute angles
+        \ifx\AngAlpha\empty\else
+            \pic ["$\AngAlpha$", draw, angle eccentricity=1.3, angle radius=0.8cm] {angle = A--B--C};
+        \fi
+        \ifx\AngBeta\empty\else
+            \pic ["$\AngBeta$", draw, angle eccentricity=1.3, angle radius=0.8cm] {angle = B--A--C};
+        \fi
+
+    \end{tikzpicture}
+}
+
