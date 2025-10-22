@@ -15,11 +15,13 @@
 \definecolor{accentblue}{RGB}{90,160,220}
 \definecolor{accentgreen}{RGB}{80,200,120}
 \definecolor{accentorange}{RGB}{255,160,60}
+\definecolor{accentred}{RGB}{100,0,0}
 \definecolor{accentborder}{RGB}{140,140,140}
 
 % --- Week / Section ---
 \newcommand{\week}[1]{%
   \refstepcounter{weekcounter}%
+  \phantomsection
   \section*{Week \theweekcounter: #1}%
   \addcontentsline{toc}{section}{Week \theweekcounter: #1}%
 }
@@ -30,6 +32,7 @@
   \noindent
   \fcolorbox{accentborder}{black!97}{\textbf{TMV: #1}}%
   \par\vspace{0.5em}%
+  \phantomsection
   \addcontentsline{toc}{subsection}{TMV: #1}%
 }
 % --- TMV / GPA (unnumbered but in TOC) ---
@@ -38,6 +41,7 @@
   \noindent
   \fcolorbox{accentborder}{black!97}{\textbf{Problem Set: #1}}%
   \par\vspace{0.5em}%
+  \phantomsection
   \addcontentsline{toc}{subsection}{Problem Set: #1}%
 }
 \newcommand{\gpa}[1][]{%
@@ -45,6 +49,7 @@
   \noindent
   \fcolorbox{accentborder}{black!97}{\textbf{Group Assignment: #1}}%
   \par\vspace{0.5em}%
+  \phantomsection
   \addcontentsline{toc}{subsection}{Group Assignment: #1}%
 }
 
@@ -68,7 +73,19 @@
   left=6pt,right=6pt,top=4pt,bottom=4pt,
   coltext=white
 }
-
+% --- Note Box ---
+\newtcolorbox{noteBox}[1][]{
+  breakable,
+  colback=boxgray,
+  colframe=accentred,
+  fonttitle=\bfseries,
+  coltitle=white,
+  title=Note: #1,
+  sharp corners,
+  boxrule=0.7pt,
+  left=6pt,right=6pt,top=4pt,bottom=4pt,
+  coltext=white
+}
 % --- Solution Box ---
 \newtcolorbox{solutionBox}[1][]{
   breakable,
@@ -103,7 +120,11 @@
   \addcontentsline{toc}{subsubsection}{Problem~\theproblem: #1}%
   \begin{problemBox}[#1]#2\end{problemBox}%
 }
-
+\newcommand{\note}[2][]{%
+  \phantomsection
+  \addcontentsline{toc}{subsubsection}{Note: #1}%
+  \begin{noteBox}[#1]#2\end{noteBox}%
+}
 \newcommand{\solution}[1]{% 
   % \addcontentsline{toc}{paragraph}{Solution~\theproblem}%
   \begin{solutionBox}#1\end{solutionBox}%
@@ -113,6 +134,39 @@
   \refstepcounter{step}%
   \begin{stepBox}[#1]#2\end{stepBox}%
 }
+
+% -------------------------
+\newcommand{\plot}[3][]{
+	\addplot[smooth, very thick, domain=#2:#3] {#1};
+	\addlegendentry{$#1$};
+
+}
+\newcommand{\graph}[4][]{
+    % #1 is optional arguments (e.g., color=green, dashed)
+    % #2 Graph Label
+    % #3 is the function (e.g., {x^2})
+    % #4 is the minimum domain (e.g., -5)
+    % #5 is the maximum domain (e.g., 5)
+    % #6 is list of points (seperated by . (10, 10). (1,1) )
+    % #7 is list of x values (seperated by ,)
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	    title={Plot of $f(x) = #2$},
+	    xlabel={$x$},
+	    ylabel={$f(x)$},
+	    axis lines=middle,
+	    xmin=#3, xmax=#4,
+	    % Add some padding to the y-axis limits
+	    % ymin=auto, ymax=auto,
+	    #1 % Allows for optional PGFPlots settings
+	]
+	#2
+	\end{axis}
+	\end{tikzpicture}
+}
+
+
 
 % -----------------------
 

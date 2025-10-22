@@ -1,8 +1,14 @@
 %!root = main.tex
 % --- Dependencies ---
 \usepackage[margin=1in]{geometry}
+\usepackage{ amssymb }
 \usepackage{amsmath}
 \usepackage{tikz}
+\usepackage{pgfplots}
+
+\usepackage{etoolbox} % Required for list parsing
+\pgfplotsset{compat=1.18}
+
 \tikzset{
     vertex/.style={circle, fill=black, inner sep=1.5pt},
     every node/.style={font=\small}
