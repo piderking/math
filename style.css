@@ -1,0 +1,22 @@
+.custom-context-menu {
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    padding: 2px 0;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    font-family: sans-serif;
+    min-width: 150px;
+    cursor: default;
+}
+
+.custom-context-menu .menu-item {
+    padding: 4px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.custom-context-menu .menu-item:hover {
+    background-color: #0078d7;
+    color: white;
+}
