@@ -1,0 +1,65 @@
+\contentsline {section}{Week 1: }{3}{section*.4}%
+\contentsline {subsection}{TMV: }{3}{section*.5}%
+\contentsline {subsection}{Group Assignment: }{3}{section*.6}%
+\contentsline {section}{Week 2: }{4}{section*.8}%
+\contentsline {subsection}{TMV: }{4}{section*.9}%
+\contentsline {subsection}{Group Assignment: }{4}{section*.10}%
+\contentsline {section}{Week 3: }{5}{section*.12}%
+\contentsline {subsection}{TMV: }{5}{section*.13}%
+\contentsline {subsection}{Group Assignment: }{5}{section*.14}%
+\contentsline {section}{Week 4: }{6}{section*.16}%
+\contentsline {subsection}{TMV: }{6}{section*.17}%
+\contentsline {subsection}{Group Assignment: }{6}{section*.18}%
+\contentsline {section}{Week 5: }{7}{section*.20}%
+\contentsline {subsection}{TMV: }{7}{section*.21}%
+\contentsline {subsection}{Group Assignment: }{7}{section*.22}%
+\contentsline {section}{Week 6: }{8}{section*.24}%
+\contentsline {subsection}{TMV: }{8}{section*.25}%
+\contentsline {subsection}{Group Assignment: }{8}{section*.26}%
+\contentsline {section}{Week 7: Exam :: 2}{9}{section*.28}%
+\contentsline {subsection}{TMV: PS 1}{9}{section*.29}%
+\contentsline {subsubsection}{Problem\nobreakspace {}7.1: Find Derivative of the following function}{9}{problem.7.1}%
+\contentsline {subsection}{Problem Set: 2}{9}{section*.30}%
+\contentsline {subsubsection}{Problem\nobreakspace {}7.2: Implicit Differentiation}{9}{problem.7.2}%
+\contentsline {subsubsection}{Problem\nobreakspace {}7.3: Find Tangent Line}{9}{problem.7.3}%
+\contentsline {subsection}{Problem Set: 3 (MOM)}{9}{section*.31}%
+\contentsline {subsubsection}{Problem\nobreakspace {}7.4: Find Derivative}{9}{problem.7.4}%
+\contentsline {section}{Week 8: Sec 4.1 and 4.2}{10}{section*.33}%
+\contentsline {subsection}{Problem Set: Set 4.1 -- Related Rates}{10}{section*.34}%
+\contentsline {subsubsection}{Problem\nobreakspace {}8.1: }{10}{problem.8.1}%
+\contentsline {subsubsection}{Problem\nobreakspace {}8.2: }{10}{problem.8.2}%
+\contentsline {subsubsection}{Problem\nobreakspace {}8.3: }{10}{problem.8.3}%
+\contentsline {subsubsection}{Problem\nobreakspace {}8.4: }{10}{problem.8.4}%
+\contentsline {subsubsection}{Problem\nobreakspace {}8.5: Shadow Problem}{10}{problem.8.5}%
+\contentsline {subsubsection}{Problem\nobreakspace {}8.6: Volume Problem}{10}{problem.8.6}%
+\contentsline {subsubsection}{Problem\nobreakspace {}8.7: Rate of Change}{11}{problem.8.7}%
+\contentsline {subsubsection}{Problem\nobreakspace {}8.8: Speed}{12}{problem.8.8}%
+\contentsline {subsection}{Problem Set: 4.2 -- Linear Approximations and Differentials}{13}{section*.35}%
+\contentsline {subsubsection}{Problem\nobreakspace {}8.9: Square Root Linear Approximation}{13}{problem.8.9}%
+\contentsline {subsubsection}{Problem\nobreakspace {}8.10: Sin Linear Approximation}{13}{problem.8.10}%
+\contentsline {subsubsection}{Problem\nobreakspace {}8.11: Linear Approximation of Complex Root and Percent Error}{14}{problem.8.11}%
+\contentsline {subsubsection}{Problem\nobreakspace {}8.12: Differentials}{14}{problem.8.12}%
+\contentsline {subsubsection}{Problem\nobreakspace {}8.13: Delta v. Differential Percent Error}{14}{problem.8.13}%
+\contentsline {subsection}{Group Assignment: }{15}{section*.36}%
+\contentsline {subsubsection}{Problem\nobreakspace {}8.14: Group 6. Sec 4.1 3}{15}{problem.8.14}%
+\contentsline {subsection}{TMV: }{17}{section*.37}%
+\contentsline {subsubsection}{Problem\nobreakspace {}8.15: \# 3}{17}{problem.8.15}%
+\contentsline {section}{Week 9: Sec 4.3, 4.4 and 4.5}{18}{section*.39}%
+\contentsline {subsection}{Problem Set: Set 4.3 -- Maxima and Minima}{18}{section*.40}%
+\contentsline {subsubsection}{Note: Absolute Ex trema}{18}{section*.41}%
+\contentsline {subsubsection}{Note: Local Extrema}{18}{section*.42}%
+\contentsline {subsubsection}{Note: Fermat's Theorem}{18}{section*.43}%
+\contentsline {subsubsection}{Note: Critical Point}{18}{section*.44}%
+\contentsline {subsubsection}{Problem\nobreakspace {}9.1: }{18}{problem.9.1}%
+\contentsline {subsection}{Problem Set: Set 4.4 -- The Mean Value Theorem}{18}{section*.45}%
+\contentsline {subsubsection}{Note: Rolle's Theorem}{18}{section*.46}%
+\contentsline {subsubsection}{Note: Mean Value Theorem}{18}{section*.47}%
+\contentsline {subsection}{Problem Set: Set 4.5 -- Derivatives and the Shape of a Graph}{18}{section*.48}%
+\contentsline {subsubsection}{Note: First Derivative Test}{18}{section*.49}%
+\contentsline {subsubsection}{Note: Concavity}{18}{section*.50}%
+\contentsline {subsubsection}{Note: Point of Inflection}{18}{section*.51}%
+\contentsline {subsubsection}{Note: Second Derivative Test}{19}{section*.52}%
+\contentsline {subsection}{Group Assignment: }{19}{section*.53}%
+\contentsline {subsubsection}{Problem\nobreakspace {}9.2: \# 4}{19}{problem.9.2}%
+\contentsline {subsection}{TMV: }{21}{section*.54}%
+\contentsline {subsubsection}{Problem\nobreakspace {}9.3: \# 2}{21}{problem.9.3}%
