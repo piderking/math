@@ -9,16 +9,25 @@
 #let eq(raw-text) = {
   context {
     // Check if the target is HTML.
-    if target() == "html" {
+    
+    let txt = raw-text
+      .replace("ddx", "d/(d x)")
+      .replace("ddy", "d/(d y)")
+      .replace("dxdy", "(d x)/(d y)")
+      .replace("dydx", "(d y)/(d x)")
+      .replace("dudx", "(d u)/(d x)")
+    
+
+      if target() == "html" {
       // Use the raw text in the 'alt' attribute.
       // Use eval() to render the raw text as a math equation inside html.frame.
-      let math = eval(raw-text, mode: "math")
-      html.elem("div", attrs: (class: "equation", data-latex: raw-text, data-typ: raw-text))[
+      let math = eval(txt, mode: "math")
+      html.elem("div", attrs: (class: "equation", data-latex: txt, data-typ: txt))[
         #html.frame(text(fill:white, size:20pt, [#math]))
       ]
     } else {
       // For other targets (like PDF), render the equation normally.
-      eval(raw-text, mode: "math")
+      eval(txt, mode: "math")
     }
   }
 }
@@ -58,6 +67,75 @@
 #let container(body) = {
   return html.elem("div", attrs: (class: "container"), body)
 }
+
+#let week(week, content) = {
+  return html.elem("div", attrs: (class: "container"))[
+      = Week #week
+      #content
+  ]
+ 
+}
+#let tmv( content ) = {
+  return [
+    == Teach Me Video
+    #content
+  ]
+}
+#let gpa( content ) = {
+  return [
+    == Group Assignment
+    #content
+  ]
+}
+#let ps(title, content) = {
+  return [
+    == Problem Set: #title
+
+    #content
+
+  ]
+}
+
+#let problem(title, definition) = {
+  return [
+    #html.elem("div", attrs: (class: "box problem"))[ 
+      ==== Problem: #title
+      #definition
+    ]
+    
+
+  ]
+}
+#let step(title, definition) = {
+  return [
+    #html.elem("div", attrs: (class: "box step"))[ 
+      ==== Step: #title
+      #definition
+    ]
+    
+
+  ]
+}
+#let solution(definition) = {
+  return [
+    #html.elem("div", attrs: (class: "box solution"))[ 
+      ==== Solution:
+      #definition
+    ]
+    
+
+  ]
+}
+#let notes(title, definition) = {
+  return [
+    #html.elem("div", attrs: (class: "box notes"))[ 
+      ==== Notes: #title
+      #definition
+    ]
+    
+
+  ]
+}
 // ---------------------------
 // HTML Content
 // ------------------------------------
@@ -67,7 +145,14 @@
   // prev_headings is already a list of headings (computed inside context)
   let parents = prev_headings.filter(h => h.level < heading.level)
   let all = (..parents, heading) 
-  all.map(h => h.body.text.replace(" ", "-")).join(".")
+  // all.map(h => h.body.text.replace(" ", "-")).join(".")
+  // Convert heading.body (content) to plain text
+  all
+    .map(h => repr(text(h.body))
+      .replace("[", "")
+      .replace("]", "")
+      .replace(" ", "-"))
+    .join(".")
 }
 
 // Level 1 example
@@ -186,14 +271,43 @@
 }
 
 #container[
-  #toc()
+  #toc() 
 ]
 
-#container([
-= Week 9
-== Teach Me Video
-#eq("f(x) = (x*2)/45 * ln(x)^{2}")
-])
+#week(9)[
+
+  #ps("Section 4.5")[
+
+    #problem("1.1", [
+    
+      #eq("f(x) = (x*2)/45 * ln(x)^{2}")
+    ])
+
+    #step("Find the Derivative")[
+      #eq("ddx")
+    ]
+
+    #notes("Tester")[
+      I am a tester note
+    ]
+    #solution[
+      #eq("f(x) = 5")
+    ]
+  ]
+
+
+
+  #gpa[]
+
+  #tmv[]
+
+
+]
+// #container([
+// = Week 9
+// == Teach Me Video
+// #eq("f(x) = (x*2)/45 * ln(x)^{2}")
+// ])
 
  // #graph_container(
  //   graph("f(x)=x"),

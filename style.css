@@ -90,6 +90,18 @@
   --muted: #9aa0b3;
   --radius: 12px;
   --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --problem-color: #e63946;
+  --solution-color: #457b9d;
+  --notes-color: #f4a261;
+  --answer-color: #2a9d8f;
+
+  --box-bg: #1a1a1a;
+  --text-color: #f1f1f1;
+  --border-radius: 12px;
+  --padding: 1rem 1.2rem;
+  --shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+
 }
 
 /* --- Base --- */
@@ -214,7 +226,6 @@ a:hover {
 
 
 /* Style for Table of Contents */
-<style>
 .toc {
   list-style: none;      /* Remove default bullets */
   padding-left: 0;
@@ -239,5 +250,44 @@ a:hover {
 .toc ul {
   padding-left: 1.5em;
 }
-</style>
 
+
+/* Base box styling */
+.box {
+  background: var(--box-bg);
+  border-left: 6px solid;
+  border-radius: var(--border-radius);
+  padding: var(--padding);
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow);
+}
+
+.box h4 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+/* Specific box colors */
+.problem {
+  border-color: var(--problem-color);
+}
+
+.solution {
+  border-color: var(--solution-color);
+}
+
+.notes {
+  border-color: var(--notes-color);
+}
+
+.step {
+  border-color: var(--answer-color);
+}
+
+/* Optional hover effect */
+.box:hover {
+  transform: translateY(-2px);
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
