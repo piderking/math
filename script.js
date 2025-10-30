@@ -166,4 +166,3 @@ document.addEventListener("DOMContentLoaded", (doc, event) => {
     calculators.push(calculator);
   }
 });
-

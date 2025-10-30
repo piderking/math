@@ -117,6 +117,19 @@ body {
   font-family: var(--font);
   line-height: 1.6;
 }
+.graph {
+	margin: 2rem;
+}
+
+.equation {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 2rem;
+  margin: 0 1rem;   /* horizontal spacing */
+  line-height: 0;
+  overflow: visible;
+}
+.equation svg { display:block; overflow:visible; }
 
 /* --- Container --- */
 .container {
