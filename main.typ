@@ -549,8 +549,75 @@ First, find a formula for the surface area of the box in terms of only
 
       #eq("limits(lim)_(x->1^+) f'(x) = -oo")
 
+
+    ]
+    #solution[
+      #html.elem("div")[]
     ]
   ]
+  #tmv[
+    #problem("Minimize Cost: 2")[ A cylindrical can is to be made to hold 3 cubic meters of liquid. Find the dimensions (radius and
+height) of the can that will minimize the cost of its construction if the top and bottom are made
+of a material that costs \$3 per square meter and the side is made of a material that costs \$5 per
+square meter.
+    ]
+
+    #step("Equations for Cyliner and Cost")[
+      
+      #eq("A = 2 pi r h + 2 pi r^2")
+      Top and Bottom
+      #eq("C(r) = 2 pi r^2 * 5")
+      Sides
+      #eq("C(x) = 2pi r h * 3")
+      Total
+      #eq("C(x) = 10 pi r^2 + 6 pi r h")
+    ]
+    #step("Volume Function")[
+      Cylinder Volume
+      #eq("V = pi r^2 h")
+      Use Given Volume
+      #eq("3 = pi r^2 h")
+      #eq("h = 3 / (pi r^2 )")
+      Final Cost Function
+
+      #eq("C(r) = 10 pi r^2 + 6 pi r * 3 / (pi r^2)")
+
+      #eq("C(r) = 10 pi r^2 + 18 / ( r )")
+    ]
+    #step("Minimize")[
+      Derivative
+      #eq("C'(r) = 20 pi r - 18 / r^2 ")
+
+      Second Derivative
+
+      #eq("C'(r) = 20 pi  + 18 / r^3 ")
+
+
+      Solve for Zeros
+
+      #eq("20 pi r^3 - 18 = 0")
+      #eq("r^3 = 18/(20pi)")
+      #eq("r = 0.659220765051")
+      
+      Second Derivative Test
+      #eq("C''(r) > 0")
+      It is a local minima
+    ]
+    #solution[
+      #eq("\"Cost\" = \$40.96")
+      #eq("\"Radius\" = 0.659220765051")
+      #eq("\"Height\" = 3 / (pi r^2 ) \"or\" 2.19740255017")
+      #graph_container(
+        graph("r = 0.659220765051"),
+        graph("C(r) = 10 pi r^2 + 18 / ( r )"),
+        graph("C(r)"),
+        graph("3 / (pi r^2 )")
+
+
+      )
+    ]
+  ]
+
   
 
 
