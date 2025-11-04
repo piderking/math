@@ -620,8 +620,142 @@ square meter.
 
   
 
+  
+
 
 ]
+#week(11)[
+      #notes("Indeterminate Forms")[
+        #eq("0/0") #eq("oo/oo")
+      ]
+
+      #notes("L'Hopital's Rule")[
+        If a limit is Indeterminate through direct subsitute then you can use it's derivative to find the limit.
+      ]
+      #ps("4.8 L'Hopital's Rule with exponentials")[
+        #problem("Evaluate Limit")[
+
+        #eq("limits(lim)_(x->oo) 2x e^(1/x) - 2x")
+        ]
+
+        #step("Set Up")[
+          Factor 
+          #eq("x(2e^(1/x) - 2)")
+          Trick (Divide by)
+          #eq("x = 1 / ( 1 / x )")
+
+          #eq("limits(lim)_(x->oo) ( 2e^(1/x) - 2)/(1/x)")
+          Use L'Hopital's Rule (Indeterminate form)
+
+        ]
+        #step("Solve Limit with L'Hopital")[
+
+          #eq("limits(lim)_(x->oo) ( 2e^u - 2)/u") #eq("u = 1/x")
+
+          Derivative 
+
+          #eq("limits(lim)_(x->oo) (2e^u  u') / u' ") #eq("u' = -1/x^2")
+
+          
+        ]
+        #solution[
+          As X Approaches U will get Infinitely smaller
+
+          #eq("limits(lim)_(x->oo) 2e^(~0)  = 2 * 1 = 2") #eq("u' = -1/x^2")
+        ]
+
+        #problem("L'Hopital with Trig")[
+        
+          #eq("limits(lim)_(x->0) (e^x - 1) / (sin(11x) = 0 / 0") 
+        ]
+        #step("Derivative")[
+
+          #eq("limits(lim)_(x->0) e^x / (cos(11x) * 11) ")
+
+          Direct Subsitute
+
+          #eq("limits(lim)_(x->0) 1 / (cos(0) * 11 ")
+        ]
+        #solution[
+        
+          #eq("limits(lim)_(x->0) = 1 / 11 ")
+        ]
+
+        #problem("Limit with tan trig")[
+
+          #eq("limits(lim)_(x->0) sin(7x) / tan(3x) ")
+        ]
+        #step("Direct Subsitute")[
+          Doesn't work get left with a Indeterminate value #eq("0/0")
+        ]
+        #step("Derivaitve")[
+          
+          #eq("limits(lim)_(x->0) 7cos(7x) / 3sec^2(x) ")
+
+        ]
+        #solution[
+          #eq("7/3")
+        ]
+        #problem("More exponentials")[
+
+          #eq("limits(lim)_(x->0) (9^x - 11^x) / x") 
+          Direct Subsitution Doesn't Work (Give Indeterminate Value)
+        ]
+        #step("Derivaitve")[
+
+          #eq("limits(lim)_(x->0) (ln(9) * 9^x - ln(11) * 11^x)") 
+        ]
+        #solution[
+          
+          #eq("limits(lim)_(x->0)  = ln(9)*1 - ln(11)*1") 
+        ]
+
+        #problem("#8")[
+
+          #eq("limits(lim)_(x->oo) (9x^3) / e^(2x) = oo/oo" ) 
+        ]
+        #step("Derivatives")[
+          1st
+          #eq("limits(lim)_(x->oo) (27x^2) / (2e^(2x) ) ") 
+          2nd
+          #eq("limits(lim)_(x->oo) (54x) / (4e^(2x) ) ")
+          3rd
+          #eq("limits(lim)_(x->oo) (54) / (8e^(2x) ) ")
+          4th
+          #eq("limits(lim)_(x->oo) 0 / (16e^(2x) ) ")
+        ]
+        #solution[
+          #eq("0/oo = 0")
+        ]
+
+      ]
+      #problem("L'Hopital with Constant (t)")[
+
+          #eq("limits(lim)_(x->44) (cos(x t) - cos(44t)) / (1936 - x^2) = 0 / 0 ")
+      ]
+      #step("Derivative")[
+          #eq("limits(lim)_(x->44) (- t sin(x t) ) / (-2x) ")
+          Plug in
+
+          #eq("(-t sin(44t) ) / (-88) ")
+
+        ]
+        #solution[
+
+          #eq("(t  sin(44t)) / (88) ")
+        ]
+
+
+      #ps("4.9 Newton's Method")[
+
+      ]
+      #gpa[]
+
+      #tmv[]
+
+       
+  ]
+
 // #container([
 // = Week 9
 // == Teach Me Video
