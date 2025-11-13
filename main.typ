@@ -11,6 +11,8 @@
     // Check if the target is HTML.
     
     let txt = raw-text
+
+      .replace("dxdt", "(d x)/(d t)")
       .replace("ddx", "d/(d x)")
       .replace("ddy", "d/(d y)")
       .replace("dxdy", "(d x)/(d y)")
@@ -48,6 +50,16 @@
       ]}
   }
  
+}
+#let local_image(file_name, height: "40vh", width: "65vw" ) = {
+   context {
+        if target() == "html" {
+      html.elem("img", attrs: (src: "/images/"+file_name, style: "padding-top: 20px; padding-bottom: 20px; width:" + width + "; height:" + height +  ";", ))[
+
+      ]}
+  }
+ 
+
 }
 
 #let point(point, options: (), ) = {
@@ -294,6 +306,7 @@
       Then there's at least one point (c) in the interval where
 
       #eq("f'(c) = (f(b) - f(a))/(b-a)")
+      Find the x value where it equals that over the interval [a, b]
       // #graph_container(
       //   graph("f(x)")
       //   )
@@ -350,6 +363,38 @@
       #eq("epsilon > 0")
       #eq("N = 1/epsilon")
       #eq("epsilon = 1/N")
+
+    ]
+
+    #notes("How to Evaluate Limits at Infinity")[
+      To evaluate a limit at infinity the most important fact to know is that 
+      #eq("limits(lim)_(x->oo) 1/x = 0")
+
+      The goal to the solutions of these problems is to get all the terms either to
+      #eq("1/x^n") or get rid of them. Most common solution is by dividing both top and bottom by x
+
+    ]
+    #problem("Evaluate Limit to Infinity with Square Root")[
+
+      #eq("limits(lim)_(x->oo) (-5x)/sqrt(2x^2+11) ")
+
+    ]
+    #solution[
+
+      #eq("limits(lim)_(x->oo) (-5x)/sqrt(2x^2+11) * (1/sqrt(x^2))/(1/sqrt(x^2))")
+   
+      #eq("limits(lim)_(x->oo) (-5)/sqrt(2x^2+11) * 1/(1/sqrt(x^2))")
+
+      #eq("limits(lim)_(x->oo) (-5)/(sqrt(2x^2+11)/sqrt(x^2)))")
+
+      #eq("limits(lim)_(x->oo) (-5)/(sqrt(2x^2+11)/sqrt(x^2)))")
+
+      #eq("limits(lim)_(x->oo) (-5)/(sqrt((2x^2+11)/x^2))")
+
+      #eq("limits(lim)_(x->oo) (-5)/(sqrt((2x^2+11)/x^2))")
+      #eq("limits(lim)_(x->oo) (-5)/(sqrt(2 + (11)/x^2))")
+
+      #eq("(-5)/sqrt(2)") 
 
     ]
     #notes("Limits at Asymptotes")[
@@ -745,15 +790,359 @@ square meter.
           #eq("(t  sin(44t)) / (88) ")
         ]
 
+        #problem("357")[
+
+          #eq("limits(lim)_(x->oo) e^x / x^k")
+        ]
+        #solution[
+          #eq("ln( L ) = limits(lim)_(x->oo) ln(e^x / x^k) ")
+
+          #eq("ln( L ) = limits(lim)_(x->oo) ln(e^x) - ln(x^k) ")
+
+          #eq("ln( L ) = limits(lim)_(x->oo) x/e - k/x ")
+
+          #eq("ln( L ) = limits(lim)_(x->oo) (x^2 - e k)/(e x) ")
+
+          L'Hopital
+          #eq("ln( L ) = limits(lim)_(x->oo) (2x)/(e) ")
+
+          #eq("L = oo")
+          
+        ]
+        #problem("381")[
+
+          #eq("limits(lim)_(x->1) (sqrt(x) - root(3, x)) / (x-1)")
+        ]
+        #solution[
+          L'Hopital
+          #eq("limits(lim)_(x->1) (1/(2sqrt(x)) - 1/(3root(3, x^2))) / (1)")
+
+          Plug In
+          #eq("limits(lim)_(x->1) (1/(2*1) - 1/(3*1 ))")
+
+          #eq("L = (1/(2) - 1/(3)) = (3/6-2/6) = 1/6")
+        ]
 
       #ps("4.9 Newton's Method")[
+        #notes("Newton's Method")[
+          Approximate Find Zeros of Functions
+
+          As the iterations get higher, the estimate will approach the actual zero
+          
+          General Form
+          #eq("n > 0") #eq("x_n = x_(n-1) - f(x_(n-1))/(f'(x_(n-1)))")
+
+          Failures:
+          - when #eq("f'(x_n) = 0") 
+          - may approach a different root (if has 1+ root)
+          - may bounce/alternate between roots
+
+        ]
+        #notes("Newton's Method Calculator")[
+          #html.elem("a", attrs: (href: "https://www.desmos.com/calculator/hguot8ny02"))[
+            Desmos Calculator
+          ]
+        ]
 
       ]
-      #gpa[]
+      #gpa[
+        #problem("9")[
 
-      #tmv[]
+          #eq("limits(lim)_(x->oo) (e^x + x)^(1/x) = L")
+          ]
+          #step("Exponent Rule")[
+         
+          #eq(" limits(lim)_(x->oo) ln((e^x + x)^(1/x)) = ln(L)")
+          Properties of Logs
+
+          #eq(" limits(lim)_(x->oo) ln((e^x + x))/x = ln(L)")
+          ]
+
+          #step("Derivative")[
+
+          #eq(" limits(lim)_(x->oo) ((e^x + 1)/(e^x + x))/1 = ln(L)")
+
+          #eq(" limits(lim)_(x->oo) ((e^x + 1)/(e^x + x)) = ln(L)")
+          ]
+
+          #step("L'Hopital Rule")[
+          Divide by common term #eq("e^x")
+          #eq(" limits(lim)_(x->oo) (1 + 1/e^x)/(1 + x/e^x) = ln(L)")
+          
+          Inner Term (L'Hopitial Again by taking derivative)
+          #eq("limits(lim)_(x->oo) x/e^x ")
+          #eq("limits(lim)_(x->oo) 1/e^x = 0 ")
+         
+          Thus we can plug everything in
+
+          #eq("limits(lim)_(x->oo) (1 + 0)/(1 + 0) = ln(L)")
+
+
+
+          ]
+          #solution[
+            #eq("ln(L) = 1")
+            #eq("L = e")
+
+          ]
+
+
+
+        #problem("10")[
+
+          #eq("limits(lim)_(x->oo) ((3x-7)/(3x+2))^(3x+1) = oo/oo")
+        ]
+        #step("Logathrim")[
+
+          #eq("ln(L) = limits(lim)_(x->oo) (3x+1)ln((3x-7)/(3x+2))")
+
+          Convert Into Fraction (for L'Hopital)
+
+          #eq("ln(L) = limits(lim)_(x->oo) ln((3x-7)/(3x+2))/(1/(3x+1))")
+
+          Is still Indeterminate
+
+        ]
+        #step("Apply L'Hopital")[
+          Logathrim Rules 
+          #eq("ln(L) = limits(lim)_(x->oo) (ln(3x-7)-ln(3x+2))/(1/(3x+1))")
+          
+          Derivative
+          #eq("ln(L) = limits(lim)_(x->oo) (3/(3x-7)-3/(3x+2))/(-3/(3x^2))")
+
+          Combine Numerators
+          #eq("ln(L) = limits(lim)_(x->oo) (27/((3x-7)(3x+2)))/(-3/(3x^2))")
+
+          Pull out Numerators
+          #eq("ln(L) = limits(lim)_(x->oo) -9 * (1/((3x-7)(3x+2)))/(1/(3x^2))")
+
+          Refactor
+
+          #eq("ln(L) = limits(lim)_(x->oo) -9 * (3x^2)/((3x-7)(3x+2))")
+
+          If you divide both sides by 3x^2 you'll get 0 or 1/x^n which when paired with an infinity limit will make it approach 0 
+
+          #eq("ln(L) = limits(lim)_(x->oo) -9 * 1/1")
+        ]
+        #solution[
+          
+          #eq("ln(L) = -9 * 1/1") #eq("L = e^(-9)")
+                  ]
+      ]
+
+      #tmv[
+        #problem("3")[
+
+          #eq("limits(lim)_(x->oo) (1+3/x)^(x/5) ")
+        ]
+        #step("Direct Subsitution")[
+          Plug in Infinity
+          #eq("L = limits(lim)_(x->oo) (1+0)^(oo)")
+          Is Indeterminate
+          #eq("L = 1^oo ")
+        ]
+        #step("L'Hopital")[
+
+          #eq("ln(L) = limits(lim)_(x->oo) (x/5)ln(1+3/x)")
+          Make into Form
+
+          #eq("ln(L) = limits(lim)_(x->oo) (ln(1+3/x) )/ ( 5/x ) ")
+          Derivative
+          #eq("ln(L) = limits(lim)_(x->oo) ( (-3x^(-2) ) /(1+3x^(-1))  )/ ( - 5/x^2) ")
+
+          Combine Numerator
+          #eq("ln(L) = limits(lim)_(x->oo) ( (-3 ) /(x^2 + 3x)  )/ ( - 5/x^2) ")
+          Divide Both Denominators
+          #eq("ln(L) = limits(lim)_(x->oo) ( (-3 ) /(1 + 3/x)  )/ ( - 5) ")
+          Plug In X
+
+          #eq("ln(L) = limits(lim)_(x->oo) ( (-3 ) /(1 + 0)  )/ ( - 5)  = 3/5")
+          ]
+        #solution[
+          #eq("ln(L) = 3/5") #eq("L = e^(3/5)") 
+        ]
+      ]
+
 
        
+  ]
+  #pagebreak()
+  #week("12 -- Exam: 3")[
+    
+    #ps("Written -- Open Response")[
+        #problem("1. Graph Function")[]
+        #solution[
+          #local_image("exam3_question1.png")
+          // TODO Image here
+        ]
+        #problem("2. Optimize Cost")[
+          Michelle’s can company needs to construct cans in the shape of a cylinder to hold 36 cubic inches (which is about 20 oz) to hold their new energy drink called Felix-Felicis (aka liquid luck). The cylindrical side of the container will be made of thinner aluminum costing 6 cents per square inch. The top and bottom will be thicker aluminum, costing 10 cents per square inch. Find the dimensions for the package that will minimize production costs. (Find the exact answers for the dimensions, do not use a calculator to round.)
+        ]
+        #step("Formulas")[
+          #eq("V = pi r^2 h")
+          #eq("A = 2 pi r h + 2 pi r^2")
+          #eq("C(r,h) = 6*2 pi r h + 10 * 2 pi r^2")
+        ]
+        #step("Expression Relative to H")[
+          Plug in Known Volume
+          #eq("36 = pi r^2 h")
+          Solve
+          #eq("36 / (pi r^2) = h")
+          Plug Into Cost Function
+          #eq("C(r) = (6*2 pi r * 36)/(pi r^2)  + 10 * 2 pi r^2")
+          Simplifiy
+          #eq("C(r) =  432 /(r)  + 20 pi r^2")
+        ]
+
+        #step("Find Minima")[
+          First Derivative
+          #eq("C'(r) = -432/(r^2) + 40pi r")
+          Second Derivative
+          #eq("C''(r) = 864/(r^3) + 40pi ")
+
+          Find Zeros of First Derivative
+
+          #eq("-432/(r^2) + 40pi r = 0")
+
+          #eq(" 40pi r = 432/(r^2) ")
+
+          #eq(" 40pi r^3 = 432 ")
+
+          #eq(" r^3 = 432/(40pi) = 54/(5pi) ")
+
+          #eq("r =  root(3,54/(5pi)) ")
+
+          Plug Into Second Derivative
+          it's concave up so thus is must be the local minima
+          #eq("C''( root(3,54/(5pi)) ) = 376.991118431 ")
+
+        ]
+        #solution[
+
+          #eq(" r = root(3,54/(5pi)) ")
+          #eq("h = 36 / (pi root(3,(54/(5pi))^2))")
+        
+          #eq("h = 36 / (pi root(3,(54/(5pi))^2))  * root(3, 54/(5pi))/ root(3, 54/(5pi))")
+
+
+          #eq("h = (36 * root(3,(54/(5pi)))) / ((54pi)/(5pi) )  ")
+
+          #eq("h = (36 * root(3,(54/(5pi)))) * ((5)/(54) )  ")
+          #eq("h = (4 * root(3,(54/(5pi)))) * ((5)/(6) )  ")
+
+
+          Answers
+
+          #eq(" \"radius\" = root(3,54/(5pi)) ")
+          #eq(" \"height\" = (20root(3,(54/(5pi)))) / 6  ")
+
+        ]
+        #problem("3.")[A child standing 10 feet away from her Aunt lets go of a balloon at the same height as their Aunt’s eye level. The balloon rises at a constant rate of 3 ft per second. How fast is the angle of elevation from the Aunt to the balloon changing 4 seconds later?]
+
+        #step("Definitions")[
+        Going to be forming a right triangle. The balloon is the vertex above the vertex at the right angle and the verex 10ft away is the aunt
+
+        The height of the balloon is raising at a constant rate
+        #eq("(d h)/(d t) = 4 ")
+
+        Angle of elevation is relative to the height and distance of the aunt
+        #eq("tan(theta)=h/d")
+
+        Find the hide
+        it rises at 3ft per second thus after four seconds
+        #eq("h = 12")
+        ]
+
+        #step("Solving for Theta")[
+ 
+        #eq("theta = arctan(h/d)")
+
+        ]
+        #step("Find Rate of Change of Angle")[
+          #eq("(d theta)/(d t) = 1 / (1 + (h/d * d/(d t)(h/d))^2 )")
+
+          #eq("(d theta)/(d t) = 1 / (1 + (h/d * ( (d h)/(d t) d - h (d d )/(d t) )/d^2 )^2 )")
+        
+          #eq("(d theta)/(d t) = 1 / (1 + (12/10 * ( 4 * 10 - 12 * 0 )/100)^2 )")
+
+          #eq("(d theta)/(d t) = 1 / (1 + (16/5 * 2/5)^2 )")
+
+          #eq("(d theta)/(d t) = 1 / (1 + (12/25)^2 )")
+
+          #eq("(d theta)/(d t) = 1 / (625/625 + 144/625 )")
+
+
+          #eq("(d theta)/(d t) = 1 / (769/625 )")
+
+
+
+        ]
+
+        #solution[
+          Where theta is the change in angle of elevation
+          #eq("(d theta)/(d t) = 625*769")
+        ]
+
+    ]
+    #tmv[
+      #problem("3")[
+        #eq("limits(lim)_(x->-oo) (1-x)^(1/ln(x^3)) ")
+
+      ]
+
+      #step("Indeterminate Form")[
+
+        #eq("limits(lim)_(x->-oo) (oo)^(0)) ")
+      ]
+
+      #step("Properties of Logathrim")[
+
+        #eq("limits(lim)_(x->-oo) (1-x)^(1/(3ln(x))) ")
+
+      
+
+      ]
+
+      #step("Algebra")[
+
+        #eq("L = limits(lim)_(x->-oo) (1-x)^(1/(3ln(x))) ")
+        
+        Apply
+        #eq("ln(L) = limits(lim)_(x->-oo) (1/(3ln(x)))ln(1-x) ")
+        Indeterminate Form
+
+        #eq("limits(lim)_(x->-oo) (0)oo ")
+      ]
+
+      #step("L'Hopital")[
+        Get into form
+        #eq("ln(L) = limits(lim)_(x->-oo) ln(1-x)/(3ln(x)) ")
+        Apply Derivaitve
+        #eq("ln(L) = limits(lim)_(x->-oo) (-1/(1-x))/(3/x) ")
+       Indeterminate Form
+        #eq("limits(lim)_(x->-oo) 0/0 ")
+        Simplify
+
+        #eq("ln(L) = limits(lim)_(x->-oo) (-1/(1-x))*(x/3) = -x/(3-3x)")
+
+
+        #eq("ln(L) = limits(lim)_(x->-oo) (-1/(1-x))*(x/3) = -(x/(3-3x)")
+
+        #eq("ln(L) = limits(lim)_(x->-oo) (-1/(1-x))*(x/3) = -(x/x)/(3/x-(3x)/x)")
+
+
+        #eq("ln(L) =  -1/(-3) = 1/3")
+
+      ]
+      #solution[
+        Solve for L
+        #eq("L = e^(1/3) = root(3, e)")
+      ]
+    ]
+
+
+
+
   ]
 
 // #container([

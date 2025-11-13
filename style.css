@@ -141,6 +141,7 @@ body {
   border-radius: var(--radius);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  break-before: always;
 }
 
 .container:hover {
@@ -217,23 +218,6 @@ a:hover {
   }
   .container {
     padding: 1rem;
-  }
-}
-
-/* --- Print-friendly --- */
-@media print {
-  body {
-    background: white;
-    color: black;
-  }
-  .container {
-    box-shadow: none;
-    border: 1px solid #ccc;
-  }
-  .title-page {
-    box-shadow: none;
-    background: white;
-    color: black;
   }
 }
 
