@@ -18,8 +18,9 @@
       .replace("dxdy", "(d x)/(d y)")
       .replace("dydx", "(d y)/(d x)")
       .replace("dudx", "(d u)/(d x)")
-    
-
+      .replace("integral", "stretch(integral, size: #3em)" )
+      .replace("!=", " eq.not ")
+      .replace("sum", "limits(sum)")
       if target() == "html" {
       // Use the raw text in the 'alt' attribute.
       // Use eval() to render the raw text as a math equation inside html.frame.
@@ -1141,10 +1142,158 @@ square meter.
     ]
 
 
+    #week("13")[
+      #ps("4.10 Anti-Derivatives")[
+        #notes("Definition")[
+          #eq("F'(x) = f(x)") #eq("F(x) \"is the anti-derivative\"")
+        ]
+        #notes("Indefinite Integrals")[
+          Anti-Derivative in respect to x
+          #eq("integral f(x) d x = F(x) + C")
+        ]
+        #notes("Power Rule for Integrals")[
+        
+          #eq("\"For \" x!=-1") #eq("integral x^n d x = x^(n+1)/(n+1) + C")
+
+        ] 
+
+        #notes("Integration Formulas (Anti-Derivatives)")[
+          Constants
+          #eq("integral k d x = k x + C")
+          Eveything is just the opposite of the derivative
+
+        ]
+
+
+        #problem("Inital Value")[
+          #eq("f''(x) = 2x+9sin(x)") #eq("f(0) = 4") #eq("f'(0)=3")
+          What is
+          #eq("f(2)")
+        ]
+        #step("Determine First Derivative")[
+          #eq("f'(x) = x^2 -9cos(x) + C")
+          Figure Out Constant
+          #eq("f'(0) = -9 ") 
+          #eq("f'(x) = x^2 -9cos(x) + 12")
+        ]
+        #step("Determine Equation")[
+          #eq("f(x) = 1/3x^3 -9sin(x) + 12x + C")
+          Figure Out Constant
+          #eq("f(0) = 0 ") 
+          #eq("f(x) = 1/3x^2 -9sin(x) + 12x + 4")
+        ]
+        #solution[
+          #eq("f(2) = 22.4829898252")
+        ]
+
+        #problem("Confusing Physics Problem")[
+          A stone is dropped from the edge of a roof, and hits the ground with a velocity of -120 feet per second. How high (in feet) is the roof?
+        ]
+        #step("Velocity")[
+        Inital Velocity is 0
+        #eq("v(0) = 0")
+        Acceleration is a constant -32
+        #eq("a(t) = -32") #eq("v(t) = integral -32 d x =  -32t + C")
+        We can figure out the time of the function by using the given value
+        #eq("-120 = -32t") #eq("t = 3.75")
+        ]
+        #step("Position")[
+          We know time of the function is 3.75 and the C of the position is going to be the height of the roof
+          #eq("p(t) = -16t^2 + C")
+          We know the poition of the round so we can solve for C
+        
+          #eq(" 16t^2 =  225 =   C")
+
+
+
+        ]
+        #solution[
+          The root is 225 ft high
+        ]
+      ]
+
+      #ps("5.1 Approximate Area")[
+        #notes("Summation Formulas")[
+          Constant
+          #eq("sum_(i=1)^n c = c n")
+          Variable
+          #eq("sum_(i=1)^n i = (n(n+1))/2")
+          Square Variable
+          #eq("sum_(i=1)^n i^2 = (n(n+1)(2n+1))/6") 
+          Cubed Variable
+          #eq("sum_(i=1)^n i^3 = ((n(n+1))/2)^2")
+        
+
+   
+
+
+
+
+
+
+
+
+
+        ]
+        #notes("Under Linear Poly Gone (Triangle with Tip Chopped Off)")[
+          #eq("A=1/2(\"side 1\" + \"side 2\") * \" length \"")
+        ]
+      ]
+      #ps("5.2 Definite Intergral")[
+        #notes("Riemann Sum Form")[
+          General Form
+          #eq("integral_a^b f(x) d x = limits(lim)_(n->oo) sum_(k=1) f(x_k) * Delta x")
+          Convert to Definite Integral
+          #eq("integral_a^b f(x) d x = limits(lim)_(n->oo) sum_(k=1) ((b-a)/n) * f(a + ((b-a)/n)k )")
+          Identify Part
+          #eq("\"Integral Length\" = (b-a)/n")
+
+        ]
+        #notes("Average Value of a Function")[
+          #eq("f_(\"ave\") = 1/(b-a) integral_a^b f(x) d x ")
+        ]
+      ]
+
+      #gpa[
+        #problem("#1 Find the Indefinite Integral")[
+          #eq("integral[(-3x^4+4x^5)/x^6 - 5root(3,x), 35/sqrt(1-x^2)+5^x + 2]")
+        ]
+      ]
+      #step("Simplify")[
+
+          #eq("integral[(-3+4x)/x^2 - 5x^(1/3), 35/sqrt(1-x^2)+5^x + 2]")
+      ]
+      #step("Find Anti-Derivatives")[
+          First Term
+          #eq("integral(-3+4x)/x^2 d x = integral-3/x^2 d x + integral(4)/x d x")
+
+          #eq("&  = 3/x^2 + 4ln(x)")
+
+          Second Term
+          #eq("integral - 5x^(1/3) d x  = -(5*3)/4 x^(4/3)")
+          
+
+          Third Term
+          #eq("integral 35*(1-x^2)^(-1/2) d x = (35 * -(1-x^2)^(1/2))/x ")
+
+          Fourth Term
+          #eq("integral 5^x d x = (5^x)/ln(5)")
+
+          Fifth Term
+          #eq("integral 2 d x = 2x")
+          
+      ]
+      #solution[
+        #eq("integral [3/x^2 + 4ln(x) -15/4x^(4/3) -( 35sqrt(1-x^2))/x + 5^x/ln(x) + 2x]d x")
+      ]
+
+
+
+    ]
+
 
 
   ]
-
 // #container([
 // = Week 9
 // == Teach Me Video
