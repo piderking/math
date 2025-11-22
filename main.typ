@@ -1256,18 +1256,18 @@ square meter.
 
       #gpa[
         #problem("#1 Find the Indefinite Integral")[
-          #eq("integral[(-3x^4+4x^5)/x^6 - 5root(3,x), 35/sqrt(1-x^2)+5^x + 2]")
+          #eq("integral[(-3x^4+4x^5)/x^6 - 5root(3,x), 35/sqrt(1-x^2)+5^x + 2] d x")
         ]
-      ]
+      
       #step("Simplify")[
 
-          #eq("integral[(-3+4x)/x^2 - 5x^(1/3), 35/sqrt(1-x^2)+5^x + 2]")
+          #eq("integral[(-3+4x)/x^2 - 5x^(1/3), 35/sqrt(1-x^2)+5^x + 2] d x")
       ]
       #step("Find Anti-Derivatives")[
           First Term
           #eq("integral(-3+4x)/x^2 d x = integral-3/x^2 d x + integral(4)/x d x")
 
-          #eq("&  = 3/x^2 + 4ln(x)")
+          #eq("&  = x^(-3) + 4ln(x)")
 
           Second Term
           #eq("integral - 5x^(1/3) d x  = -(5*3)/4 x^(4/3)")
@@ -1284,8 +1284,77 @@ square meter.
           
       ]
       #solution[
-        #eq("integral [3/x^2 + 4ln(x) -15/4x^(4/3) -( 35sqrt(1-x^2))/x + 5^x/ln(x) + 2x]d x")
+        #eq("x^(-3) + 4ln(x) -15/4x^(4/3) -( 35sqrt(1-x^2))/x + 5^x/ln(x) + 2x + C")
       ]
+      #problem("5.")[
+        Find the left handed estimate of
+        #eq("f(x) = 3^x - cos(pi x)") #eq("[-3,2]") 
+      ]
+      #notes("Riemann Summ Formula")[
+        Left
+        #eq("L_n = limits(sum)^n_(i=1) f(x_(i-1))Delta x ")
+        Right
+        #eq("L_n = limits(sum)^n_(i=1) f(x_(i))Delta x")
+      ]
+      #step("Find Change in X")[
+        #eq("(2--3)/10 = 1/2")
+        
+
+      ]
+      #step("Riemann Sum Formula")[
+
+        #eq("L_10 = limits(sum)^10_(i=1) (3^(x_i-1) + cos(pi(x_i - 1)) )Delta x ")
+      ]
+      #solution[
+        #eq("x_i = -3 + 1/2 z ") #eq("z in [1, 10] ")
+        #eq("limits(sum)^10_(i=1) f(x_i)Delta x = 0.5 ( 1.03 + 0.06 - 0.89 + 0.19 & + 1.33 + 0.58 + 0 + 1.73 + 4 + 5.20  )")
+        #eq("= 6.62")
+
+        #local_image("gpa_week1.png")
+      ]
+    ]
+    #tmv[
+      #problem("1")[
+        #eq("integral [(5x^3+4x^5)/x^6 - 6root(4,x) - 35/(1+x^2) - 7^x + 12tan(x)sec(x)]d x")
+      ]
+      #step("Break Apart and Simplify")[
+        Each term can be seperated and then added back together (rules of integrals)
+
+        #eq("integral [(5+4x^2)/x^3] - integral[6root(4,x)] d x - integral[ 35/(1+x^2)] d x + integral  [- 7^x ] d x + integral [ 12tan(x)sec(x)]d x")
+      ]
+      #step("Solve for each integral seperately")[
+        First (Power Rule and Natural Log)
+        #eq("integral [(5x+4x^2)/x^3] d x  =  integral [(5)/x^2 + 4x^2/x^3] d x ")
+
+        #eq("integral [(5)/x^2 + 4/x] d x = -5/(3x^3) + 4ln(x) + C ")
+
+        Second (Power Rule)
+
+        #eq(" - integral[6root(4,x)] d x  = - integral[6x^(1/4)] d x = - (6*4)/5 * x^(5/4) + C ")
+
+        Third (Natural Log Rule and Chain Rule)
+
+        #eq("- integral[ 35/(1+x^2)] d x ")
+        #eq("(d/(d x)) ln(u) = u'/u")
+
+        #eq("- integral[ 35/(u)] d u = (35ln(u))/u' + C = - (35ln(1+x^2))/(2x) + C ")
+
+        Fourth 
+
+        
+        #eq("- integral[ 7^x] d x = 7^x/ln(7) + C")
+      
+        Fifth 
+        #eq("integral [12 tan(x)sec(x)]d x = 12sec(x) + C")
+      ]
+      #step("Combine All")[
+
+        #eq("-5/(3x^3) + 4ln(x) -5/(3x^3) + 4ln(x) +  (24)/5 root(4,x^(5)) - (35ln(1+x^2))/(2x) - 7^x/ln(7) + 12sec(x) + C")
+
+      ]
+
+    ]
+
 
 
 
