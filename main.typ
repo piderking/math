@@ -1433,6 +1433,38 @@ square meter.
           #eq("sqrt(6)/3 arcsin(2x)")
 
         ]
+        #problem("6")[
+          #eq("9 integral x/(x^4 + 1)")
+        ]
+        #step("Integrate")[
+          #eq("u = x^2") #eq("d u = 2x")
+          #eq("9 integral x/(u^2 + 1) * 2/2")
+          #eq("9/2 integral 1/(u^2 + 1) d u")
+
+          #eq("9/2 arctan(u) ")
+        ]
+        #solution[#eq("9/2 arctan(x^2)")]
+
+        #problem("7")[
+          #eq("integral x^3/sqrt(x^2+16)")
+
+        ]#step("Integrate")[
+          #eq("u = x^2 + 16") #eq("d u = 2x")
+          #eq("integral x^3/sqrt(u)")
+          #eq("integral (x^2 * x)/sqrt(u) * 2/2")
+          #eq("1/2 integral x^2/sqrt(u) d u  ")
+          #eq("1/2 integral (u-16)/sqrt(u) d u")
+          #eq("1/2 (integral (u)*u^(-1/2) d u - integral 16/sqrt(u))")
+
+          #eq("1/2 (integral u^(1/2) d u - 16 integral u^(-1/2))")
+        
+          #eq("1/2 (2/3 u^(3/2) - 16 * 2 u^(1/2))")
+
+
+          #eq("(1/3 u^(3/2) - 16u^(1/2))")
+
+          #eq("(1/3 (x^2+16)^(3/2) - 16(x^2+16)^(1/2))")
+        ]
       ]
 
 
