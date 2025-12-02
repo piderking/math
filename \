@@ -18,16 +18,6 @@
       .replace("dxdy", "(d x)/(d y)")
       .replace("dydx", "(d y)/(d x)")
       .replace("dudx", "(d u)/(d x)")
-      .replace("dx", "d x")
-      .replace("d u", "d u")
-      .replace("d/dx", "d/(d x)")
-      .replace("d/dy", "d/(d y)")
-      .replace("arctan", "tan^(-1)")
-      .replace("arccot", "cot^(-1)")
-      .replace("arcsin", "sin^(-1)")
-      .replace("arccos", "cos^(-1)")
-      .replace("arccsc", "csc^(-1)")
-      .replace("arcsec", "sec^(-1)")
       .replace("integral", "stretch(integral, size: #3em)" )
       .replace("!=", " eq.not ")
       .replace("sum", "limits(sum)")
@@ -1374,14 +1364,7 @@ square meter.
 
     #week("15")[
       #notes("Important Integrations Cheatsheet")[
-        #eq("d/(d x) sin^(-1)(x/a) = 1/sqrt(a^2-x^2)") 
-        #eq("d/(d x) cos^(-1)(x/a) = - 1/sqrt(a^2-x^2)")
-        #eq("d/(d x) tan^(-1)(x/a) = a/(a^2+x^2)") 
-        #eq("d/(d x) cot^(-1)(x/a) = -a/(a^2+x^2)")
-        #eq("d/(d x) 1/a csc^(-1)(x/a) = -1/((|x|sqrt(x^2-a^2))") 
-        #eq("d/(d x) 1/a sec^(-1)(x/a) = 1/(|x|sqrt(x^2-a^2))")
-        #eq("d/(d theta) ln(a cos(theta) ) = - tan( theta ) ")
-        #eq("d/(d theta) ln(a sin(theta) ) = cot( theta ) ")
+        #eq("d/dx")
 
       ]
       #ps("5.5 ")[
@@ -1392,45 +1375,9 @@ square meter.
           #eq("u = x^2 + 1 ") #eq(" d u = 2x")
           #eq("integral 3/u d u + integral 7/(x^2 + 1)")
 
-          #eq("3ln(u) + 7 arctan(x) + C")
+          #eq("3ln(u) + integral 7/(x^2 + 1)")
 
-        ]
-        #solution[#eq("3ln(x^2 + 1) + 7arctan(x) + C")]
 
-        #problem("4")[
-          #eq("integral x^3/sqrt(1 - x^8)")
-        ]
-        #step("Integrate")[
-          #eq("u = x^4") #eq("d u = 4x^3")
-          #eq("integral (d u) /sqrt(1-u^2) * 4/4")
-          #eq("1/4 integral (1) /sqrt(1-u^2) d u ")
-          #eq("1/4arcsin(u) + C")
-
-        ]
-        #solution[
-
-          #eq("1/4arcsin(x^4) + C")
-        ]
-
-        #problem("5")[
-          #eq("4 integral 1/sqrt(6-24x^2) d x")
-                  ]
-        #step("Integrate")[
-          #eq("u = sqrt(24) x ")  #eq("d u = sqrt(24)")
-
-          #eq("4 integral 1/sqrt(6-u^2) * sqrt(24)/sqrt(24)")
-        
-          #eq("4 integral 1/sqrt(6-u^2) * 1/sqrt(24) d u")
-
-          #eq("a = sqrt(6)")
-
-          #eq("4 integral 1/sqrt(a^2-u^2) * 1/sqrt(24) d u")
-
-          #eq("4/sqrt(24) integral 1/sqrt(a^2-u^2) d u = 4/sqrt(24) arcsin(u/a)")
-
-          #eq("sqrt(6)/3 arcsin(2sqrt(6)x)/(sqrt(6))")
-          
-          #eq("sqrt(6)/3 arcsin(2x)")
 
         ]
       ]
