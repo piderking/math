@@ -19,7 +19,7 @@
       .replace("dydx", "(d y)/(d x)")
       .replace("dudx", "(d u)/(d x)")
       .replace("dx", "d x")
-      .replace("d u", "d u")
+      .replace("du", "d u")
       .replace("d/dx", "d/(d x)")
       .replace("d/dy", "d/(d y)")
       .replace("arctan", "tan^(-1)")
@@ -1374,14 +1374,19 @@ square meter.
 
     #week("15")[
       #notes("Important Integrations Cheatsheet")[
-        #eq("d/(d x) sin^(-1)(x/a) = 1/sqrt(a^2-x^2)") 
-        #eq("d/(d x) cos^(-1)(x/a) = - 1/sqrt(a^2-x^2)")
-        #eq("d/(d x) tan^(-1)(x/a) = a/(a^2+x^2)") 
-        #eq("d/(d x) cot^(-1)(x/a) = -a/(a^2+x^2)")
-        #eq("d/(d x) 1/a csc^(-1)(x/a) = -1/((|x|sqrt(x^2-a^2))") 
-        #eq("d/(d x) 1/a sec^(-1)(x/a) = 1/(|x|sqrt(x^2-a^2))")
+        #eq("integral (d u)/sqrt(a^2-u^2) = arcsin(u/a) + C")
+        #eq("integral (d u)/(a^2+u^2) = 1/a arctan(u/a) + C")
+        #eq("integral (d u)/(u sqrt(a^2-u^2)) = 1/(|a|) arcsec((|u|)/a) + C")
+        Inverses are negative
+
+        Natural Log of Cos
         #eq("d/(d theta) ln(a cos(theta) ) = - tan( theta ) ")
         #eq("d/(d theta) ln(a sin(theta) ) = cot( theta ) ")
+        Logarithmic Functions
+        #eq("integral ln(x) d x = x(ln(x) - 1) + C")
+        #eq("integral log_a(x) d x = x/ln(a)(ln(x) - 1) + C")
+        Important
+        #eq("integral 1/u d u = ln(| u |) + C")
 
       ]
       #ps("5.5 ")[
@@ -1465,6 +1470,207 @@ square meter.
 
           #eq("(1/3 (x^2+16)^(3/2) - 16(x^2+16)^(1/2))")
         ]
+      ]
+      #ps("5.6")[
+        #problem("5")[
+          #eq("integral 2/(s ln(4s)) d s")
+        ]
+        #step("Integrate w/ Subsitution")[
+          #eq("u = ln(4s) ") #eq("d u = 1/s")
+
+          #eq("2 integral 1/(s) * 1/u d s")
+
+
+          #eq("2 integral 1/u d u")
+        ]
+        #step("Find Function")[
+          #eq("2 ln(u)")
+        ]
+        #solution[
+          #eq("2ln(|ln(4s)|)")
+        ]
+        #problem("6")[
+          #eq("integral e^(11x)/(e^(11x) + 6)^2 dx")
+        ]
+        #step("Integrate")[
+          #eq("u = e^(11x) + 6") #eq("d u = 11e^(11x)")
+          #eq("1/11 integral e^(11x)/(u)^2 dx * 11 = 1/11 integral u^(-2) d u")
+          #eq("1/11 * -1 * 1/(u)")
+        ]
+        #solution[
+          #eq("-1/(11)")
+
+          #eq("-1/(11(e^(11x) + 6))")
+        ]
+        #problem("11")[
+          #eq("integral x e^(-5x^2) dx")
+        ]
+        #step("Integrate")[
+          #eq("u = -5x^2") #eq("d u = -10x")
+        
+          #eq("-1/10 integral x e^(u) * -10 dx")
+
+          #eq("-1/10 integral e^(u) d u ")
+        ]
+
+        #problem("17")[
+          #eq("integral 1/(2+e^(-9x) dx ") 
+        ]
+        #step("Integrate")[
+
+          #eq("integral 1/(2+e^(-9x)) dx * e^(9x)/e^(9x) ")
+          
+          #eq("integral e^(9x)/(2e^(9x) + 1) d x  ")
+          #eq("u = 2e^(9x) + 1\" \" d u = 18e^(9x) ")
+
+          #eq("1/18 integral 1/u d u ")
+          #eq("1/18 ln(|u|) = 1/18 ln(|2e^(9x) + 1|)")
+                 ]
+        
+      ]
+      #ps("5.7")[
+        Final Problem Set
+        #problem("3")[
+          #eq("integral 1/(16x^2+1) dx ")
+        ]
+        #step("Integrate")[
+          #eq("u = 4x \"  \" d u = 4")
+
+          #eq("integral 1/(u^2+1) * 4/4 ")
+
+          #eq("1/4 integral (d u)/(u^2+1)")
+        ]
+        #solution[
+          #eq("1/4 arctan(4x)")
+        ]
+
+        #problem("4")[
+          #eq("integral (5 d y) /sqrt(9-36y^2)")
+          #eq("u = 6y \" \" d u = 6")
+          #eq("5 integral 1/sqrt(3^2 - u^2) * 6/6 ")
+
+          #eq("5/6 integral 1/sqrt(3^2 - u^2) d u  ")
+        
+          #eq("5/6 arcsin(u/3) ")
+        ]
+        #solution[
+          #eq("5/6 arcsin(2x)")
+        ]
+      ] 
+      #gpa[
+        #problem("5.5-5.7 #8")[
+          #eq("integral (arccos(x))/sqrt(1-x^2) d x")
+        ]
+        #step("Split Apart and U-Sub")[
+          #eq("integral arccos(x) *  1/sqrt(1-x^2) d x")
+          #eq(" u =  arccos(x) \"  \" d u = 1/sqrt(1-x^2) ")
+          #eq("integral (u )d u")
+          
+        ]
+        #step("Integrate")[
+          #eq("u + C = arccos(x) + C")
+        ]
+        #solution[#eq("arccos(x)")]
+
+        #problem("5.5-5.7 #9")[
+          #eq("integral (6x^2 -7)/(2x^3 - 7x) dx")
+        ]
+        
+        #step("Integrate")[
+          #eq("u  = 2x^3 - 7x \" \" d u = 6x^2 - 7")
+          #eq("integral 1/u d u")
+
+          
+                 ]
+        #solution[
+
+          #eq("ln(|2x^3 -7x|) + C")
+        ]
+      ]
+      #tmv[
+        #problem("1")[
+          #eq("integral x^2 / sqrt(x-9) dx")
+        ]
+        #step("subsitution")[
+
+          #eq("u = x-9 ")#eq("x = u + 9") #eq("d u = dx")
+          #eq("integral x^2 / sqrt(x-9) dx")
+          #eq("integral (u+9)^2 / sqrt(u) d u")
+
+          #eq("integral (u^(-1/2))(u^2 + 18u + 81)  d u")
+        ]
+        #step("Distribute")[
+
+          #eq("integral (u^(3/2) + 18u^(1/2) + 81u^(-1/2))  d u")
+        ]
+        #step("Split")[
+
+          #eq("integral u^(3/2) d u = 2/5 sqrt(u^5)")
+
+          #eq("integral 18^(1/2) d u = 18 * 2/3 sqrt(u^3)")
+
+          #eq("integral 81u^(-1/2) d u = 81 * 2 sqrt(u)")
+        ]
+        #step("Combined")[
+          #eq("2/5 sqrt(u^5) + 12 sqrt(u^3) + 162 sqrt( u ) + C")
+        ]
+        #solution[
+
+          #eq("2/5 sqrt((x-9)^5) + 12 sqrt((x-9)^3) + 162 sqrt( (x-9) ) + C")
+        ]
+
+
+        #problem("10")[
+          #eq("integral^9_0 sqrt(4-sqrt(x)) dx ")
+        ]
+        #step("First Subsitution")[
+          #eq("u = sqrt(x) \"  \" u^2 = x \"  \" du = 1/2 x^(-1/2) ")
+          #eq("integral sqrt(4 - u)  dx")
+          #eq("2u * du = 1")
+          #eq("2 integral u sqrt(4-u) du")
+        ]
+        #step("Second Subsitution" )[
+          #eq("v = 4-u \" \" u = 4-v \" \" d v = -1 ")
+
+          #eq("2 integral (4-v)sqrt(v) * (-1)/(-1) ")
+
+          #eq("-1 * 2 integral (4sqrt(v) - v sqrt(v)) d v ")
+
+          #eq("-2 ( 4 integral sqrt(v) d v - integral sqrt(v^3) d v) ")
+
+        ]
+        #step("Integrate")[
+
+          #eq("-2 ( 4 * 2/3 sqrt(v^3) - integral sqrt(v^3) d v) ")
+
+          #eq("-2 ( 4 * 2/3 sqrt(v^3) - 2/5 sqrt(v^5) ) ")
+
+
+
+        ]
+        #step("Plug In")[
+          First v
+
+          #eq("-2 ( 4 * 2/3 sqrt((4-u)^3) - 2/5 sqrt((4-u)^5)) ")
+
+          Second u
+          #eq("u = sqrt(x) ")
+          #eq("-2 ( 4 * 2/3 sqrt((4-sqrt(x))^3) - 2/5 sqrt((4-sqrt(x))^5)) ")
+
+        ]
+        #step("Finished Indefinite Integral")[
+          #eq("F(x) = -16/3 sqrt((4-sqrt(x))^3) + 4/5 sqrt((4-sqrt(x))^5)")
+          Evaluate
+          #eq("integral^9_0 f(x) dx = F(9) - F(0)")
+          #eq("F(9) - F(0) = 12.5333333333 ")
+          
+        ]
+        #solution[
+          #eq(" integral^9_0 sqrt(4-sqrt(x)) dx =  12.5333333333")
+        ]
+
+
+
       ]
 
 
